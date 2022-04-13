@@ -68,7 +68,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       child: Row(
                         children: [
                           Icon(Icons.add),
-                          Text("Coba-coba"),
+                          Text("Mari Kita Belajar"),
                         ],
                       ),
                     )
