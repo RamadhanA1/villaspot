@@ -58,6 +58,24 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                 )),
+            Container(
+              child: Center(
+                child: ListView(
+                  children: [
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      child: Row(
+                        children: [
+                          Icon(Icons.add),
+                          Text("Coba-coba"),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
             // Container(
             //     child: GridView.count(
             //   crossAxisCount: 2,
