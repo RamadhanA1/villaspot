@@ -1,12 +1,12 @@
-# Villaspot
+# Villaspot DEADLINE 11 MEI 2022
 
-A new Flutter project.
+PROJECT TUGAS AKHIR MATA KULIAH PEMROGRAMAN APLIKASI BERJALAN
 
 ## Getting Started
 
 ### Upload Files Updated
 - ```sh git add . ```
-- ```sh git commit -m "(Tulis update yg sudah dilakukan) ```
+- ```sh git commit -m "(Tulis update yg sudah dilakukan)" ```
 - ```sh git push ```
 - kalau tidak bisa dengan step tiga coba dengan input ini ```sh git push -f origin main```
 - kalau masih tidak bisa, coba ikuti cara yg disarankan terminalnya
