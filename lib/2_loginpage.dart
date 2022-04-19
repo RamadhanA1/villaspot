@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:villaspot/1_welcomescreen.dart';
 import 'package:villaspot/3_signuppage.dart';
-import 'package:villaspot/4_mainpage.dart';
+import 'package:villaspot/4_Homepage.dart';
+import 'package:villaspot/mainpage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -93,8 +94,9 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Home()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                      return Home();
+                    }));
                   },
                   child: Text(
                     'Login',
