@@ -28,7 +28,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-
       // APPBAR
       appBar: new AppBar(
         automaticallyImplyLeading: false,
@@ -47,19 +46,18 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       ),
       // AKHIR APPBAR
 
-
       // BODY
       body: Container(
         child: Column(
           children: [
             Container(
                 padding: EdgeInsets.only(bottom: 10),
-                child: new Image.network(
-              'https://cdn.pixabay.com/photo/2020/03/21/20/03/real-estate-4955086__340.jpg',
-              width: 1080,
-              height: 150,
-              fit: BoxFit.cover,
-            )),
+                child: new Image.asset(
+                  'assets/10.jpg',
+                  width: 1080,
+                  height: 150,
+                  fit: BoxFit.cover,
+                )),
             Container(
                 padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 child: Align(
@@ -70,29 +68,105 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   ),
                 )),
             Expanded(
-                child: Container(
+              child: Container(
                   padding: EdgeInsets.all(10),
                   child: GridView.count(
-              crossAxisCount: 2,
-              childAspectRatio: 16 / 9,
-              children: [
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.blue,
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.blue,
-                ),
-              ],
+                    crossAxisCount: 2,
+                    childAspectRatio: 16 / 9,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          'assets/3.jpg',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Container(
+                        child: Image.asset(
+                          'assets/2.jpg',
+                          // width: 1080,
+                          // height: 150,
+                          fit: BoxFit.cover,
+                        ),
+                        margin: EdgeInsets.all(10),
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 0.0),
+                          child: Text(
+                            "Villa Bogor 1 Rp1.000.000/Malam",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                        ),
+                        margin: EdgeInsets.all(0),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 0.0),
+                          child: Text(
+                            "Villa Bogor 2 Rp1.500.000/Malam",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                        ),
+                        margin: EdgeInsets.all(0),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          'assets/3.jpg',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Container(
+                        child: Image.asset(
+                          'assets/2.jpg',
+                          // width: 1080,
+                          // height: 150,
+                          fit: BoxFit.cover,
+                        ),
+                        margin: EdgeInsets.all(10),
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 0.0),
+                          child: Text(
+                            "Villa Bogor 1 Rp1.000.000/Malam",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                        ),
+                        margin: EdgeInsets.all(0),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 0.0),
+                          child: Text(
+                            "Villa Bogor 2 Rp1.500.000/Malam",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                        ),
+                        margin: EdgeInsets.all(0),
+                      ),
+                    ],
+                  )),
             )
-                ),
-                )
           ],
         ),
       ),
       // AKHIR BODY
-
 
       // BOTTOM NAVIOGATION
       bottomNavigationBar: new Material(
@@ -123,45 +197,45 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return HistoryPage();
-                    }));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return HistoryPage();
+                  }));
                 },
                 child: Container(
-                  child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.history_sharp,
-                    color: Colors.white.withOpacity(0.8),
-                  ),
-                  Text(
-                    "History",
-                    style: TextStyle(color: Colors.white.withOpacity(0.8)),
-                  )
-                ],
-              )),
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.history_sharp,
+                      color: Colors.white.withOpacity(0.8),
+                    ),
+                    Text(
+                      "History",
+                      style: TextStyle(color: Colors.white.withOpacity(0.8)),
+                    )
+                  ],
+                )),
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return ChatPage();
-                    }));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ChatPage();
+                  }));
                 },
                 child: Container(
-                  child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.chat_sharp,
-                    color: Colors.white.withOpacity(0.8),
-                  ),
-                  Text(
-                    "Chat",
-                    style: TextStyle(color: Colors.white.withOpacity(0.8)),
-                  )
-                ],
-              )),
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.chat_sharp,
+                      color: Colors.white.withOpacity(0.8),
+                    ),
+                    Text(
+                      "Chat",
+                      style: TextStyle(color: Colors.white.withOpacity(0.8)),
+                    )
+                  ],
+                )),
               ),
               InkWell(
                 onTap: () {
@@ -170,26 +244,25 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   //   }));
                 },
                 child: Container(
-                  child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.account_circle_rounded,
-                    color: Colors.white.withOpacity(0.8),
-                  ),
-                  Text(
-                    "Account",
-                    style: TextStyle(color: Colors.white.withOpacity(0.8)),
-                  )
-                ],
-              )),
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.account_circle_rounded,
+                      color: Colors.white.withOpacity(0.8),
+                    ),
+                    Text(
+                      "Account",
+                      style: TextStyle(color: Colors.white.withOpacity(0.8)),
+                    )
+                  ],
+                )),
               ),
             ],
           ),
         ),
       ),
       // AKHIR BOTTOM NAVGATION
-
     );
   }
 }

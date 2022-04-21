@@ -15,13 +15,20 @@ class WelcomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  image: DecorationImage(
+                    image: AssetImage('assets/5.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                // child: Image.asset(
+                //   'assets/3.jpg',
+                //   fit: BoxFit.cover,
+                // ),
                 width: 160.0,
                 height: 160.0,
                 margin: EdgeInsets.only(bottom: 70),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(27.0)),
-                  color: Colors.black87,
-                ),
               ),
               Container(
                 margin: EdgeInsets.only(bottom: 30),

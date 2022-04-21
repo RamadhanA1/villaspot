@@ -24,13 +24,16 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  image: DecorationImage(
+                    image: AssetImage('assets/4.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 width: 160.0,
                 height: 160.0,
                 margin: EdgeInsets.only(bottom: 30, top: 30),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(27.0)),
-                  color: Colors.black87,
-                ),
               ),
               Container(
                 margin: EdgeInsets.only(bottom: 10),
@@ -94,7 +97,8 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
                       return Home();
                     }));
                   },
