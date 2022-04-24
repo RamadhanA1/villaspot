@@ -239,9 +239,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               ),
               InkWell(
                 onTap: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: (context){
-                  //     return Accountpage();
-                  //   }));
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return Accountpage();
+                    }));
                 },
                 child: Container(
                     child: Column(

@@ -1,244 +1,432 @@
-// import 'package:flutter/material.dart';
-// import 'package:villaspot/4-3_chat.dart';
-// import 'package:villaspot/5_History.dart';
-// import 'package:villaspot/7_Account.dart';
+import 'package:flutter/material.dart';
+import 'package:villaspot/1_welcomescreen.dart';
+import 'package:villaspot/4_Homepage.dart';
+import 'package:villaspot/6_Chat.dart';
+import 'package:villaspot/5_History.dart';
+import 'package:villaspot/7_Account.dart';
 
-// class Accountpage extends StatefulWidget {
-//   Null get title => null;
+class Accountpage extends StatefulWidget {
+  Null get title => null;
 
-//   @override
-//   _AccountpageState createState() => _AccountpageState();
-// }
+  @override
+  _AccountpageState createState() => _AccountpageState();
+}
 
-// class _AccountpageState extends State<Accountpage> with SingleTickerProviderStateMixin {
-//   // late TabController controller;
+class _AccountpageState extends State<Accountpage>
+    with SingleTickerProviderStateMixin {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      // APPBAR
+      appBar: new AppBar(
+        automaticallyImplyLeading: true,
+        backgroundColor: Colors.blue[400],
+        title: Text('Account'),
+      ),
+      // AKHIR APPBAR
 
-//   // @override
-//   // void initState() {
-//   //   controller = new TabController(length: 4, vsync: this);
-//   //   super.initState();
-//   // }
+      // BODY
+      body: Container(
+        alignment: Alignment.center,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // PROFILE PICTURE
+              Container(
+                width: 120.0,
+                height: 120.0,
+                margin: EdgeInsets.only(top: 30, bottom: 10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100.0),
+                  child: Image.network(
+                    // ==> TARUH SOURCE GAMBAR DISINI
+                    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+                    // TARUH SOURCE GAMBAR DISINI <==
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              // AKHIR PROFILE PICTURE
+              // CONTAINER FORM NAMA
+              Container(
+                child: Column(
+                  children: [
+                    Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 20.0),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Nama',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16),
+                          ),
+                        )),
+                    Container(
+                      // width: 260,
+                      height: 60,
 
-//   // @override
-//   // void dispose() {
-//   //   controller.dispose();
-//   //   super.dispose();
-//   // }
+                      padding: EdgeInsets.only(bottom: 10, right: 20, left: 20),
+                      child: TextFormField(
+                        initialValue: 'Ringgo Ricard',
+                        enabled: false,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // AKHIR FORM NAMA
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return new Scaffold(
-//       appBar: new AppBar(
-//         automaticallyImplyLeading: true,
-//         backgroundColor: Colors.blue[400],
-//         title: Text('Account'),
-//       ),
-//       body: Container(
-//         child: Column(
-//           children: [
-//             // Container(
-//             //     padding: EdgeInsets.only(bottom: 10),
-//             //     child: new Image.network(
-//             //   'https://cdn.pixabay.com/photo/2020/03/21/20/03/real-estate-4955086__340.jpg',
-//             //   width: 1080,
-//             //   height: 150,
-//             //   fit: BoxFit.cover,
-//             // )),
-//             Container(
-//                 padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-//                 child: Align(
-//                   alignment: Alignment.topLeft,
-//                   child: Text(
-//                     'Rekomendasi',
-//                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-//                   ),
-//                 )),
-//             Expanded(
-//                 child: Container(
-//                   padding: EdgeInsets.all(10),
-//                   child: GridView.count(
-//               crossAxisCount: 2,
-//               childAspectRatio: 16 / 9,
-//               children: [
-//                 Container(
-//                   margin: EdgeInsets.all(10),
-//                   color: Colors.blue,
-//                 ),
-//                 Container(
-//                   margin: EdgeInsets.all(10),
-//                   color: Colors.blue,
-//                 ),
-//               ],
-//             )
-//                 ),
-//                 )
-//           ],
-//         ),
-//       ),
+              // CONTAINER FORM EMAIL
+              Container(
+                child: Column(
+                  children: [
+                    Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 20.0),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Email Address',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16),
+                          ),
+                        )),
+                    Container(
+                      // width: 260,
+                      height: 60,
+                      padding: EdgeInsets.only(bottom: 10, right: 20, left: 20),
+                      child: TextFormField(
+                        initialValue: 'ringgo_rrq@gmail.com',
+                        enabled: false,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // AKHIR FORM EMAIL
 
-//       // body: new Tab,
-//       bottomNavigationBar: new Material(
-//         color: Colors.blue[400],
-//         child: Container(
-//           height: 60,
-//           child: Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceAround,
-//             children: [
-//               InkWell(
-//                 onTap: () {
-//                   null;
-//                 },
-//                 child: Container(
-//                     child: Column(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: [
-//                     Icon(
-//                       Icons.home,
-//                       color: Colors.white,
-//                     ),
-//                     Text(
-//                       "Home",
-//                       style: TextStyle(color: Colors.white),
-//                     )
-//                   ],
-//                 )),
-//               ),
-//               InkWell(
-//                 onTap: () {
-//                   Navigator.push(context, MaterialPageRoute(builder: (context){
-//                       return HistoryPage();
-//                     }));
-//                 },
-//                 child: Container(
-//                   child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 children: [
-//                   Icon(
-//                     Icons.history_sharp,
-//                     color: Colors.white.withOpacity(0.8),
-//                   ),
-//                   Text(
-//                     "History",
-//                     style: TextStyle(color: Colors.white.withOpacity(0.8)),
-//                   )
-//                 ],
-//               )),
-//               ),
-//               InkWell(
-//                 onTap: () {
-//                   Navigator.push(context, MaterialPageRoute(builder: (context){
-//                       return ChatPage();
-//                     }));
-//                 },
-//                 child: Container(
-//                   child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 children: [
-//                   Icon(
-//                     Icons.chat_sharp,
-//                     color: Colors.white.withOpacity(0.8),
-//                   ),
-//                   Text(
-//                     "Chat",
-//                     style: TextStyle(color: Colors.white.withOpacity(0.8)),
-//                   )
-//                 ],
-//               )),
-//               ),
-//               InkWell(
-//                 onTap: () {
-//                   Navigator.push(context, MaterialPageRoute(builder: (context){
-//                       return Accountpage();
-//                     }));
-//                 },
-//                 child: Container(
-//                   child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 children: [
-//                   Icon(
-//                     Icons.account_circle_rounded,
-//                     color: Colors.white.withOpacity(0.8),
-//                   ),
-//                   Text(
-//                     "Account",
-//                     style: TextStyle(color: Colors.white.withOpacity(0.8)),
-//                   )
-//                 ],
-//               )),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+              // CONTAINER FORM EMAIL
+              Container(
+                child: Column(
+                  children: [
+                    Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 20.0),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Phone Number',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16),
+                          ),
+                        )),
+                    Container(
+                      // width: 260,
+                      height: 60,
+                      padding: EdgeInsets.only(bottom: 10, right: 20, left: 20),
+                      child: TextFormField(
+                        initialValue: '0821-8241-8698',
+                        enabled: false,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // AKHIR FORM PHONE NUMBER
 
-// class CustomSearchDelegate extends SearchDelegate {
-//   List<String> searchTerms = [
-//     'Hotel Bogor 1',
-//     'Hotel Bogor 2',
-//     'Hotel Bogor 3',
-//     'Hotel Bogor 4',
-//   ];
+              // CONTAINER FORM BIRTHDAY
+              Container(
+                child: Column(
+                  children: [
+                    Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 20.0),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Birthday',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16),
+                          ),
+                        )),
+                    Container(
+                      // width: 260,
+                      height: 60,
+                      padding: EdgeInsets.only(bottom: 10, right: 20, left: 20),
+                      child: TextFormField(
+                        initialValue: '12/05/2001',
+                        enabled: false,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // AKHIR FORM BIRTHDAY
 
-//   @override
-//   List<Widget> buildActions(BuildContext context) {
-//     return [
-//       IconButton(
-//         icon: const Icon(Icons.clear),
-//         onPressed: () {
-//           query = '';
-//         },
-//       ),
-//     ];
-//   }
+              //Awal LOGOUT Button//
+              Container(
+                width: 120,
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return WelcomePage();
+                    }));
+                  },
+                  child: Text(
+                    'Log Out',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.indigo.shade900),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              //Akhir LOGOUT Button//
 
-//   @override
-//   Widget buildLeading(BuildContext context) {
-//     return IconButton(
-//       icon: const Icon(Icons.arrow_back),
-//       onPressed: () {
-//         close(context, null);
-//       },
-//     );
-//   }
+              // CODING <HR>
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Divider(),
+              ),
+              // AKHIR CODING <HR>
 
-//   @override
-//   Widget buildResults(BuildContext context) {
-//     List<String> matchQuery = [];
-//     for (var hotel in searchTerms) {
-//       if (hotel.toLowerCase().contains(query.toLowerCase())) {
-//         matchQuery.add(hotel);
-//       }
-//     }
-//     return ListView.builder(
-//       itemCount: matchQuery.length,
-//       itemBuilder: (context, index) {
-//         var result = matchQuery[index];
-//         return ListTile(
-//           title: Text(result),
-//         );
-//       },
-//     );
-//   }
+              // ABOUT
+              Container(
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 20.0),
+                      child: Text(
+                        'About',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 10, right: 20, left: 20),
+                      child: Text(
+                        'Kritik, Saran, Masukan :',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ),
+                    Container(
+                      // width: 260,
+                      // height: 60,
+                      padding: EdgeInsets.only(bottom: 10, right: 20, left: 20),
+                      child: TextFormField(
+                        // // initialValue: '12/05/2001',
+                        // enabled: false,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                    Container(
+                width: 120,
+                padding: EdgeInsets.only(bottom: 1),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return WelcomePage();
+                    }));
+                  },
+                  child: Text(
+                    'Log Out',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.indigo.shade900),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Divider(),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 20.0),
+                      child: Text(
+                        'Contact Us:',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 5.0, horizontal: 20.0),
+                      child: Text(
+                        'Telp : 021-123-123-12',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                      child: Text(
+                        'E-Mail : Jaja.Kamaludin@gmail.com',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      // AKHIR BODY
 
-//   @override
-//   Widget buildSuggestions(BuildContext context) {
-//     List<String> matchQuery = [];
-//     for (var hotel in searchTerms) {
-//       if (hotel.toLowerCase().contains(query.toLowerCase())) {
-//         matchQuery.add(hotel);
-//       }
-//     }
-//     return ListView.builder(
-//       itemCount: matchQuery.length,
-//       itemBuilder: (context, index) {
-//         var result = matchQuery[index];
-//         return ListTile(
-//           title: Text(result),
-//         );
-//       },
-//     );
-//   }
-// }
+      // BOTTOM NAVIOGATION
+      bottomNavigationBar: new Material(
+        color: Colors.blue[400],
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return Home();
+                  }));
+                },
+                child: Container(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.home,
+                      color: Colors.white.withOpacity(0.8),
+                    ),
+                    Text(
+                      "Home",
+                      style: TextStyle(color: Colors.white.withOpacity(0.8)),
+                    )
+                  ],
+                )),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return HistoryPage();
+                  }));
+                },
+                child: Container(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.history_sharp,
+                      color: Colors.white.withOpacity(0.8),
+                    ),
+                    Text(
+                      "History",
+                      style: TextStyle(color: Colors.white.withOpacity(0.8)),
+                    )
+                  ],
+                )),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ChatPage();
+                  }));
+                },
+                child: Container(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.chat_sharp,
+                      color: Colors.white.withOpacity(0.8),
+                    ),
+                    Text(
+                      "Chat",
+                      style: TextStyle(color: Colors.white.withOpacity(0.8)),
+                    )
+                  ],
+                )),
+              ),
+              InkWell(
+                onTap: () {
+                  // Navigator.push(context, MaterialPageRoute(builder: (context){
+                  //     return Accountpage();
+                  //   }));
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.account_circle_rounded,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Account",
+                      style: TextStyle(color: Colors.white),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      // AKHIR BOTTOM NAVGATION
+    );
+  }
+}
