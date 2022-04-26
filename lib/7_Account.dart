@@ -275,7 +275,7 @@ class _AccountpageState extends State<Accountpage>
                     }));
                   },
                   child: Text(
-                    'Log Out',
+                    'Kirim',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
