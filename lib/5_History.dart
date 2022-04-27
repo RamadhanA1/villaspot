@@ -29,8 +29,8 @@ class _HistoryPageState extends State<HistoryPage>
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: Center(
-          child: SingleChildScrollView(
-            child: Column(
+          // child: SingleChildScrollView(
+            child: ListView(
               children: [
                 // AWAL SECTION BOOKING
                 Container(
@@ -550,7 +550,7 @@ class _HistoryPageState extends State<HistoryPage>
               ],
             ),
           ),
-        ),
+        // ),
       ),
       // AKHIR BODY
 
