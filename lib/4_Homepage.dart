@@ -69,97 +69,403 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 )),
             Expanded(
               child: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                   child: GridView.count(
                     crossAxisCount: 2,
                     childAspectRatio: 16 / 9,
                     children: [
+                      //Awalan
                       Container(
-                        margin: EdgeInsets.all(10),
-                        child: Image.asset(
-                          'assets/3.jpg',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Container(
-                        child: Image.asset(
-                          'assets/2.jpg',
-                          // width: 1080,
-                          // height: 150,
-                          fit: BoxFit.cover,
-                        ),
-                        margin: EdgeInsets.all(10),
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 0.0),
-                          child: Text(
-                            "Villa Bogor 1 Rp1.000.000/Malam",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/4.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Container(
+                              // height: 10,
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.blue.shade900.withOpacity(0.1),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'Villa Bogor',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Rp 100.000,-',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                        margin: EdgeInsets.all(0),
                       ),
+                      //Akhiran
+                      //Awalan
                       Container(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 0.0),
-                          child: Text(
-                            "Villa Bogor 2 Rp1.500.000/Malam",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/4.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Container(
+                              // height: 10,
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.blue.shade900.withOpacity(0.1),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'Villa Bogor',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Rp 100.000,-',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                        margin: EdgeInsets.all(0),
                       ),
+                      //Akhiran
+                      //Awalan
                       Container(
-                        margin: EdgeInsets.all(10),
-                        child: Image.asset(
-                          'assets/3.jpg',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Container(
-                        child: Image.asset(
-                          'assets/2.jpg',
-                          // width: 1080,
-                          // height: 150,
-                          fit: BoxFit.cover,
-                        ),
-                        margin: EdgeInsets.all(10),
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 0.0),
-                          child: Text(
-                            "Villa Bogor 1 Rp1.000.000/Malam",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/4.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Container(
+                              // height: 10,
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.blue.shade900.withOpacity(0.1),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'Villa Bogor',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Rp 100.000,-',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                        margin: EdgeInsets.all(0),
                       ),
+                      //Akhiran
+                      //Awalan
                       Container(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 0.0),
-                          child: Text(
-                            "Villa Bogor 2 Rp1.500.000/Malam",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/4.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Container(
+                              // height: 10,
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.blue.shade900.withOpacity(0.1),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'Villa Bogor',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Rp 100.000,-',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                        margin: EdgeInsets.all(0),
                       ),
+                      //Akhiran
+                      //Awalan
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/4.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Container(
+                              // height: 10,
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.blue.shade900.withOpacity(0.1),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'Villa Bogor',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Rp 100.000,-',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      //Akhiran
+                      //Awalan
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/4.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Container(
+                              // height: 10,
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.blue.shade900.withOpacity(0.1),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'Villa Bogor',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Rp 100.000,-',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      //Akhiran
+                      //Awalan
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/4.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Container(
+                              // height: 10,
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.blue.shade900.withOpacity(0.1),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'Villa Bogor',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Rp 100.000,-',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      //Akhiran
+                      //Awalan
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/4.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Container(
+                              // height: 10,
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.blue.shade900.withOpacity(0.1),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'Villa Bogor',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Rp 100.000,-',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.white),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      //Akhiran
                     ],
                   )),
             )
@@ -239,9 +545,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return Accountpage();
-                    }));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return Accountpage();
+                  }));
                 },
                 child: Container(
                     child: Column(
