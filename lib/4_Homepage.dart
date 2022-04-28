@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:villaspot/4.3_PemesananDone.dart';
 import 'package:villaspot/6_Chat.dart';
 import 'package:villaspot/5_History.dart';
 import 'package:villaspot/7_Account.dart';
+// import 'package:flutter_swiper/flutter_swiper.dart';
+// import 'package:flutter_page_indicator/flutter_page_indicator.dart';
+// import 'package:transformer_page_view/transformer_page_view.dart';
 
 class Home extends StatefulWidget {
   Null get title => null;
@@ -52,6 +56,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           children: [
             Container(
                 padding: EdgeInsets.only(bottom: 10),
+                // child: Swiper(
+                //   itemCount: 5,
+                //   itemBuilder: (BuildContext context, int index) {
+                //     return Image.asset('assets/10.jpg',
+                //         width: 1080, height: 150, fit: BoxFit.cover);
+                //   },
+                // )
                 child: new Image.asset(
                   'assets/10.jpg',
                   width: 1080,
