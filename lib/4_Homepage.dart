@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:villaspot/4.1_VillaDesk.dart';
 import 'package:villaspot/4.3_PemesananDone.dart';
 import 'package:villaspot/6_Chat.dart';
 import 'package:villaspot/5_History.dart';
@@ -90,7 +91,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return VillaDesk();
+                            }));
+                          },
                           child: Container(
                             decoration: BoxDecoration(
                               image: DecorationImage(

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:villaspot/1_welcomescreen.dart';
 import 'package:villaspot/2_loginpage.dart';
+import 'package:intl/intl.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -12,6 +13,25 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   bool _isObscure = true;
+
+  DateTime selectedDate = DateTime.now();
+  final firstDate = DateTime(1970);
+  final lastDate = DateTime.now();
+
+  _openDatePicker(BuildContext context) async {
+    final DateTime? date = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: firstDate,
+        lastDate: lastDate
+        );
+    if (date != null) {
+      setState(() {
+        selectedDate = date;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,9 +85,12 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 52,
                   padding: EdgeInsets.symmetric(vertical: 5),
                   child: TextFormField(
-                    // initialValue: 'Masukkan Username atau Email Anda',
+                    onTap: () => _openDatePicker(context),
+                    // initialValue: 'Tap untuk mengubah tanggal',
                     decoration: InputDecoration(
+                      // isCollapsed: true,
                       labelText: 'Tanggal Lahir',
+                      prefixText: 'Tap untuk mengubah tanggal',
                       // errorText: 'Error message',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(100),
@@ -78,6 +101,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                 ),
+                // Text('$selectedDate'.split(' ')[0]),
                 Container(
                   width: 260,
                   height: 52,
@@ -86,6 +110,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     // initialValue: 'Masukkan Username atau Email Anda',
                     decoration: InputDecoration(
                       labelText: 'Username',
+                      prefixText: '@',
                       // errorText: 'Error message',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(100),

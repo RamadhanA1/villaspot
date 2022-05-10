@@ -18,7 +18,7 @@ class WelcomePage extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                    image: AssetImage('assets/5.jpg'),
+                    image: AssetImage('assets/logo.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
