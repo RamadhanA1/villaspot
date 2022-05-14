@@ -4,6 +4,7 @@ import 'package:villaspot/1_welcomescreen.dart';
 import 'package:villaspot/3_signuppage.dart';
 import 'package:villaspot/4_Homepage.dart';
 import 'package:villaspot/mainpage.dart';
+import 'package:intl/intl.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -14,6 +15,35 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isObscure = true;
+
+  // FORM KEY
+  final _formKey = GlobalKey<FormState>();
+
+  String _email = '';
+  String _password = '';
+  // FORM KEY
+
+  // FUNGSI UNTUK LOGIN
+  void _trySubmitForm() {
+    final bool? isValid = _formKey.currentState?.validate();
+    if (isValid == true) {
+      debugPrint('Everything looks good!');
+      debugPrint(_email);
+      debugPrint(_password);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Login Berhasil')),
+      );
+
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
+
+      /* 
+      Continute proccessing the provided information with your own logic 
+      such us sending HTTP requests, savaing to SQLite database, etc.
+      */
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,84 +74,113 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 //Text Field//
-                Container(
-                  width: 260,
-                  height: 54,
-                  padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
-                  child: TextFormField(
-                    // initialValue: 'Masukkan Username atau Email Anda',
-                    decoration: InputDecoration(
-                      labelText: 'Username or Email',
-                      // errorText: 'Error message',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      // suffixIcon: Icon(
-                      //   Icons.password,
-                      // ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 260,
-                  height: 54,
-                  padding: EdgeInsets.fromLTRB(0, 5, 0, 10),
-                  child: TextFormField(
-                    // initialValue: 'Masukkan Username atau Email Anda',
-                    obscureText: _isObscure,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      // errorText: 'Error message',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      suffixIcon: IconButton(
-                          icon: Icon(_isObscure
-                              ? Icons.visibility
-                              : Icons.visibility_off),
-                          onPressed: () {
-                            setState(() {
-                              _isObscure = !_isObscure;
-                            });
-                          }),
-                      // suffixIcon: Icon(
-                      //   Icons.remove_red_eye,
-                      // ),
-                    ),
-                  ),
-                ),
-                //Akhir Text Field//
-                //Awal Login Button//
-                Container(
-                  width: 90,
-                  height: 55,
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Home();
-                      }));
-                    },
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                          Colors.indigo.shade900),
-                      shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 260,
+                        // height: 52,
+                        padding: EdgeInsets.symmetric(vertical: 5),
+                        child: TextFormField(
+                          // validator
+                          validator: (value) {
+                            if (value == null || value.trim().isEmpty) {
+                              return 'Please enter your email address';
+                            }
+                            // Check if the entered email has the right format
+                            if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                              return 'Please enter a valid email address';
+                            }
+                            // Return null if the entered email is valid
+                            return null;
+                          },
+                          onChanged: (value) => _email = value,
+                          // validator
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(13, 10, 10, 0),
+                            labelText: 'Email',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      Container(
+                        width: 260,
+                        // height: 52,
+                        padding: EdgeInsets.symmetric(vertical: 5),
+                        child: TextFormField(
+                          // validator
+                          validator: (value) {
+                            if (value == null || value.trim().isEmpty) {
+                              return 'This field is required';
+                            }
+                            if (value.trim().length < 8) {
+                              return 'Password must be at least 8 characters in length';
+                            }
+                            // Return null if the entered password is valid
+                            return null;
+                          },
+                          onChanged: (value) => _password = value,
+                          // validator
+
+                          obscureText: _isObscure,
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(13, 10, 10, 0),
+                            labelText: 'Password',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            suffixIcon: IconButton(
+                                icon: Icon(_isObscure
+                                    ? Icons.visibility
+                                    : Icons.visibility_off),
+                                onPressed: () {
+                                  setState(() {
+                                    _isObscure = !_isObscure;
+                                  });
+                                }),
+                          ),
+                        ),
+                      ),
+                      //Awal Login Button//
+                      Container(
+                        width: 90,
+                        height: 55,
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: ElevatedButton(
+                          onPressed: _trySubmitForm,
+                          // () {
+                          //   Navigator.push(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //           builder: (context) => LoginPage()));
+                          // },
+                          child: Text(
+                            'Login',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Colors.indigo.shade900),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      //Akhir Login Button//
+                    ],
                   ),
                 ),
-                //Akhir Login Button//
+
+                //Akhir Text Field//
 
                 //Awal Text//
                 Container(
