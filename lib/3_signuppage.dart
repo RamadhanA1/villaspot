@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:villaspot/1_welcomescreen.dart';
 import 'package:villaspot/2_loginpage.dart';
 import 'package:intl/intl.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -16,32 +18,21 @@ class _SignUpPageState extends State<SignUpPage> {
   bool _isObscure = true;
   //Menghilangkan Typing Password
 
-  // Memilih tanggal
-  DateTime selectedDate = DateTime.now();
+  // // Memilih tanggal
+  final format = DateFormat("dd-MM-yyyy");
+  // DateTime selectedDate = DateTime.now();
   final firstDate = DateTime(1970);
   final lastDate = DateTime.now();
-
-  _openDatePicker(BuildContext context) async {
-    final DateTime? date = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: firstDate,
-        lastDate: lastDate);
-    if (date != null) {
-      setState(() {
-        selectedDate = date;
-      });
-    }
-  }
   // Memilih tanggal
 
   // FORM KEY
   final _formKey = GlobalKey<FormState>();
 
   String _namaLengkap = '';
+  String _pilihTanggal = '';
   String _userName = '';
   String _email = '';
-  String _emailConfirm = '';
+  String _telepon = '';
   String _password = '';
   String _passwordConfirm = '';
   // FORM KEY
@@ -52,9 +43,10 @@ class _SignUpPageState extends State<SignUpPage> {
     if (isValid == true) {
       debugPrint('Everything looks good!');
       debugPrint(_namaLengkap);
+      debugPrint(_pilihTanggal);
       debugPrint(_userName);
       debugPrint(_email);
-      debugPrint(_emailConfirm);
+      debugPrint(_telepon);
       debugPrint(_password);
       debugPrint(_passwordConfirm);
 
@@ -114,7 +106,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           // validator
                           validator: (value) {
                             if (value == null || value.trim().isEmpty) {
-                              return 'Please enter your email address';
+                              return 'Please enter your full name';
                             }
                             // Return null if the entered name is valid
                             return null;
@@ -135,25 +127,32 @@ class _SignUpPageState extends State<SignUpPage> {
                         width: 260,
                         // height: 52,
                         padding: EdgeInsets.symmetric(vertical: 5),
-                        child: TextFormField(
-                          onTap: () => _openDatePicker(context),
-                          // initialValue: 'Tap untuk mengubah tanggal',
+                        child: DateTimeField(
+                          format: format,
+                          onShowPicker: (context, _pilihTanggal) {
+                            return showDatePicker(
+                                context: context,
+                                firstDate: firstDate,
+                                initialDate: _pilihTanggal ?? DateTime.now(),
+                                lastDate: lastDate);
+                          },
+                          validator: (_pilihTanggal) {
+                            if (_pilihTanggal == null) {
+                              return 'Please enter your birth date';
+                            }
+                            // Return null if the entered name is valid
+                            return null;
+                          },
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(13, 10, 10, 0),
-                            // isCollapsed: true,
                             labelText: 'Tanggal Lahir',
-                            prefixText: 'Tap untuk mengubah tanggal',
-                            // errorText: 'Error message',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(100),
                             ),
-                            // suffixIcon: Icon(
-                            //   Icons.password,
-                            // ),
                           ),
+
                         ),
                       ),
-                      // Text('$selectedDate'.split(' ')[0]),
                       Container(
                         width: 260,
                         // height: 52,
@@ -190,17 +189,17 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: TextFormField(
                           // validator
                           validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Please enter your email address';
-                          }
-                          // Check if the entered email has the right format
-                          if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
-                            return 'Please enter a valid email address';
-                          }
-                          // Return null if the entered email is valid
-                          return null;
-                        },
-                        onChanged: (value) => _email = value,
+                            if (value == null || value.trim().isEmpty) {
+                              return 'Please enter your email address';
+                            }
+                            // Check if the entered email has the right format
+                            if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                              return 'Please enter a valid email address';
+                            }
+                            // Return null if the entered email is valid
+                            return null;
+                          },
+                          onChanged: (value) => _email = value,
                           // validator
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(13, 10, 10, 0),
@@ -216,24 +215,28 @@ class _SignUpPageState extends State<SignUpPage> {
                         // height: 52,
                         padding: EdgeInsets.symmetric(vertical: 5),
                         child: TextFormField(
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
                           // validator
                           validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'This field is required';
-                          }
-
-                          if (value != _email) {
-                            return 'Confirmation email does not same';
-                          }
-
-                          return null;
-                        },
-                        onChanged: (value) => _emailConfirm = value,
+                            if (value == null || value.trim().isEmpty) {
+                              return 'Please enter your phone number';
+                            }
+                            // Check if the entered email has the right format
+                            if (value.trim().length < 10) {
+                              return 'Phone number must be at least 10 digits in length';
+                            }
+                            // Return null if the entered email is valid
+                            return null;
+                          },
+                          onChanged: (value) => _telepon = value,
                           // validator
-                          
+
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(13, 10, 10, 0),
-                            labelText: 'Konfirmasi Email',
+                            labelText: 'Telepon',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(100),
                             ),
@@ -247,16 +250,16 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: TextFormField(
                           // validator
                           validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'This field is required';
-                          }
-                          if (value.trim().length < 8) {
-                            return 'Password must be at least 8 characters in length';
-                          }
-                          // Return null if the entered password is valid
-                          return null;
-                        },
-                        onChanged: (value) => _password = value,
+                            if (value == null || value.trim().isEmpty) {
+                              return 'This field is required';
+                            }
+                            if (value.trim().length < 8) {
+                              return 'Password must be at least 8 characters in length';
+                            }
+                            // Return null if the entered password is valid
+                            return null;
+                          },
+                          onChanged: (value) => _password = value,
                           // validator
 
                           obscureText: _isObscure,
@@ -285,17 +288,17 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: TextFormField(
                           // validator
                           validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'This field is required';
-                          }
+                            if (value == null || value.isEmpty) {
+                              return 'This field is required';
+                            }
 
-                          if (value != _password) {
-                            return 'Confimation password does not match the entered password';
-                          }
+                            if (value != _password) {
+                              return 'Confimation password does not match the entered password';
+                            }
 
-                          return null;
-                        },
-                        onChanged: (value) => _passwordConfirm = value,
+                            return null;
+                          },
+                          onChanged: (value) => _passwordConfirm = value,
                           // validator
 
                           obscureText: _isObscure,

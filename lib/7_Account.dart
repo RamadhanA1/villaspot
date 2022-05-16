@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:villaspot/1_welcomescreen.dart';
 import 'package:villaspot/4_Homepage.dart';
 import 'package:villaspot/6_Chat.dart';
@@ -7,13 +8,56 @@ import 'package:villaspot/7_Account.dart';
 
 class Accountpage extends StatefulWidget {
   Null get title => null;
-
+  
   @override
   _AccountpageState createState() => _AccountpageState();
 }
 
 class _AccountpageState extends State<Accountpage>
     with SingleTickerProviderStateMixin {
+  
+  // // Memilih tanggal
+  final format = DateFormat("dd-MM-yyyy");
+  // DateTime selectedDate = DateTime.now();
+  final firstDate = DateTime(1970);
+  final lastDate = DateTime.now();
+  // Memilih tanggal
+
+  // FORM KEY
+  final _formKey = GlobalKey<FormState>();
+
+  String _namaLengkap = 'Ringgo Ricard';
+  String _pilihTanggal = '05-12-2001';
+  String _userName = 'ringgoR';
+  String _email = 'ringgo_rrq@gmail.com';
+  String _telepon = '089875686542';
+  // FORM KEY
+
+  // FUNGSI UNTUK SIGN UP
+  void _trySubmitForm() {
+    final bool? isValid = _formKey.currentState?.validate();
+    if (isValid == true) {
+      debugPrint('Everything looks good!');
+      debugPrint(_namaLengkap);
+      debugPrint(_pilihTanggal);
+      debugPrint(_userName);
+      debugPrint(_email);
+      debugPrint(_telepon);
+
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   const SnackBar(content: Text('Pembuatan Akun Berhasil')),
+      // );
+
+      // Navigator.push(
+      //     context, MaterialPageRoute(builder: (context) => LoginPage()));
+
+      /* 
+      Continute proccessing the provided information with your own logic 
+      such us sending HTTP requests, savaing to SQLite database, etc.
+      */
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -41,10 +85,15 @@ class _AccountpageState extends State<Accountpage>
                   child: Image.asset(
                     // ==> TARUH SOURCE GAMBAR DISINI
                     'assets/1.jpg',
-                    // 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
                     // TARUH SOURCE GAMBAR DISINI <==
                     fit: BoxFit.cover,
                   ),
+                  // child: Image.network(
+                  //   // ==> TARUH SOURCE GAMBAR DISINI
+                  //   'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+                  //   // TARUH SOURCE GAMBAR DISINI <==
+                  //   fit: BoxFit.cover,
+                  // ),
                 ),
               ),
               // AKHIR PROFILE PICTURE
@@ -266,33 +315,33 @@ class _AccountpageState extends State<Accountpage>
                       ),
                     ),
                     Container(
-                      width: 120,
-                      padding: EdgeInsets.only(bottom: 1),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (context) {
-                            return WelcomePage();
-                          }));
-                        },
-                        child: Text(
-                          'Kirim',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.indigo.shade900),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(100),
-                            ),
-                          ),
-                        ),
+                width: 120,
+                padding: EdgeInsets.only(bottom: 1),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return WelcomePage();
+                    }));
+                  },
+                  child: Text(
+                    'Kirim',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.indigo.shade900),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
                       ),
                     ),
+                  ),
+                ),
+              ),
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Divider(),
@@ -307,8 +356,8 @@ class _AccountpageState extends State<Accountpage>
                       ),
                     ),
                     Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
+                      padding: EdgeInsets.symmetric(
+                          vertical: 5.0, horizontal: 20.0),
                       child: Text(
                         'Telp : 021-123-123-12',
                         style: TextStyle(
