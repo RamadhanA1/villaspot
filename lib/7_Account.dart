@@ -38,9 +38,10 @@ class _AccountpageState extends State<Accountpage>
                 margin: EdgeInsets.only(top: 30, bottom: 10),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100.0),
-                  child: Image.network(
+                  child: Image.asset(
                     // ==> TARUH SOURCE GAMBAR DISINI
-                    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+                    'assets/1.jpg',
+                    // 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
                     // TARUH SOURCE GAMBAR DISINI <==
                     fit: BoxFit.cover,
                   ),
@@ -265,33 +266,33 @@ class _AccountpageState extends State<Accountpage>
                       ),
                     ),
                     Container(
-                width: 120,
-                padding: EdgeInsets.only(bottom: 1),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) {
-                      return WelcomePage();
-                    }));
-                  },
-                  child: Text(
-                    'Kirim',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        Colors.indigo.shade900),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
+                      width: 120,
+                      padding: EdgeInsets.only(bottom: 1),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                            return WelcomePage();
+                          }));
+                        },
+                        child: Text(
+                          'Kirim',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700),
+                        ),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.indigo.shade900),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Divider(),
@@ -306,8 +307,8 @@ class _AccountpageState extends State<Accountpage>
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 5.0, horizontal: 20.0),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
                       child: Text(
                         'Telp : 021-123-123-12',
                         style: TextStyle(
