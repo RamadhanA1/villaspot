@@ -211,7 +211,7 @@ class CardChat extends StatelessWidget {
                     leading: new CircleAvatar(
                       foregroundColor: Theme.of(context).primaryColor,
                       backgroundColor: Colors.grey,
-                      backgroundImage: new AssetImage('assets/2.jpg'
+                      backgroundImage: new AssetImage('assets/profile.jpg'
                           // 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
                           ),
                     ),

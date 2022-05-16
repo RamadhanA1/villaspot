@@ -33,30 +33,30 @@ class _AccountpageState extends State<Accountpage>
   String _telepon = '089875686542';
   // FORM KEY
 
-  // FUNGSI UNTUK SIGN UP
-  void _trySubmitForm() {
-    final bool? isValid = _formKey.currentState?.validate();
-    if (isValid == true) {
-      debugPrint('Everything looks good!');
-      debugPrint(_namaLengkap);
-      debugPrint(_pilihTanggal);
-      debugPrint(_userName);
-      debugPrint(_email);
-      debugPrint(_telepon);
+  // // FUNGSI UNTUK SIGN UP
+  // void _trySubmitForm() {
+  //   final bool? isValid = _formKey.currentState?.validate();
+  //   if (isValid == true) {
+  //     debugPrint('Everything looks good!');
+  //     debugPrint(_namaLengkap);
+  //     debugPrint(_pilihTanggal);
+  //     debugPrint(_userName);
+  //     debugPrint(_email);
+  //     debugPrint(_telepon);
 
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //   const SnackBar(content: Text('Pembuatan Akun Berhasil')),
-      // );
+  //     // ScaffoldMessenger.of(context).showSnackBar(
+  //     //   const SnackBar(content: Text('Pembuatan Akun Berhasil')),
+  //     // );
 
-      // Navigator.push(
-      //     context, MaterialPageRoute(builder: (context) => LoginPage()));
+  //     // Navigator.push(
+  //     //     context, MaterialPageRoute(builder: (context) => LoginPage()));
 
-      /* 
-      Continute proccessing the provided information with your own logic 
-      such us sending HTTP requests, savaing to SQLite database, etc.
-      */
-    }
-  }
+  //     /* 
+  //     Continute proccessing the provided information with your own logic 
+  //     such us sending HTTP requests, savaing to SQLite database, etc.
+  //     */
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -84,16 +84,10 @@ class _AccountpageState extends State<Accountpage>
                   borderRadius: BorderRadius.circular(100.0),
                   child: Image.asset(
                     // ==> TARUH SOURCE GAMBAR DISINI
-                    'assets/1.jpg',
+                    'assets/profile.jpg',
                     // TARUH SOURCE GAMBAR DISINI <==
                     fit: BoxFit.cover,
                   ),
-                  // child: Image.network(
-                  //   // ==> TARUH SOURCE GAMBAR DISINI
-                  //   'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
-                  //   // TARUH SOURCE GAMBAR DISINI <==
-                  //   fit: BoxFit.cover,
-                  // ),
                 ),
               ),
               // AKHIR PROFILE PICTURE
@@ -118,7 +112,7 @@ class _AccountpageState extends State<Accountpage>
 
                       padding: EdgeInsets.only(bottom: 10, right: 20, left: 20),
                       child: TextFormField(
-                        initialValue: 'Ringgo Ricard',
+                        initialValue: '$_namaLengkap',
                         enabled: false,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -153,7 +147,7 @@ class _AccountpageState extends State<Accountpage>
                       height: 60,
                       padding: EdgeInsets.only(bottom: 10, right: 20, left: 20),
                       child: TextFormField(
-                        initialValue: 'ringgo_rrq@gmail.com',
+                        initialValue: '$_email',
                         enabled: false,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -188,7 +182,7 @@ class _AccountpageState extends State<Accountpage>
                       height: 60,
                       padding: EdgeInsets.only(bottom: 10, right: 20, left: 20),
                       child: TextFormField(
-                        initialValue: '0821-8241-8698',
+                        initialValue: '$_telepon',
                         enabled: false,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -223,7 +217,7 @@ class _AccountpageState extends State<Accountpage>
                       height: 60,
                       padding: EdgeInsets.only(bottom: 10, right: 20, left: 20),
                       child: TextFormField(
-                        initialValue: '12/05/2001',
+                        initialValue: '$_pilihTanggal',
                         enabled: false,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
