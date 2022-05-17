@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:villaspot/4.3_PemesananDone.dart';
+import 'package:villaspot/5_History.dart';
 
 class PagePemesanan extends StatefulWidget {
   Null get title => null;
@@ -260,7 +261,7 @@ class _PagePemesanan extends State<PagePemesanan>
                         ],
                       ),
                     ),
-                    //AWALAN TOMBOL KONFIRMASI PEMESANAN
+                    //AWALAN TOMBOL PEMESANAN SELESAI
                     Container(
                       padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
                       width: 250,
@@ -269,10 +270,10 @@ class _PagePemesanan extends State<PagePemesanan>
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DonePage()));
+                                  builder: (context) => HistoryPage()));
                         },
                         child: Text(
-                          'Konfirmasi Pemesanan',
+                          'Pemesanan Selesai',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 17,
