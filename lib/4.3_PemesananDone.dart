@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:villaspot/2_loginpage.dart';
 import 'package:villaspot/3_signuppage.dart';
 import 'package:villaspot/4_Homepage.dart';
+import 'package:villaspot/5.1_HistoryPemesanan.dart';
 
 class DonePage extends StatelessWidget {
   const DonePage({Key? key}) : super(key: key);
@@ -55,8 +56,10 @@ class DonePage extends StatelessWidget {
                 width: 250,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HistoryPemesanan()));
                   },
                   child: Text(
                     'Lihat Deskripsi Pemesanan',

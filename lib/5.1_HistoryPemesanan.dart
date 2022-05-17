@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:villaspot/4.3_PemesananDone.dart';
 import 'package:villaspot/5_History.dart';
 
-class PagePemesanan extends StatefulWidget {
+class HistoryPemesanan extends StatefulWidget {
   Null get title => null;
 
   @override
-  _PagePemesanan createState() => _PagePemesanan();
+  _HistoryPemesanan createState() => _HistoryPemesanan();
 }
 
-class _PagePemesanan extends State<PagePemesanan>
+class _HistoryPemesanan extends State<HistoryPemesanan>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
