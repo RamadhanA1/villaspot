@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:villaspot/1_welcomescreen.dart';
 import 'package:villaspot/4_Homepage.dart';
 import 'package:villaspot/5.1_HistoryPemesanan.dart';
+import 'package:villaspot/5.2_HistoryDone.dart';
 import 'package:villaspot/6_Chat.dart';
 import 'package:villaspot/5_History.dart';
 import 'package:villaspot/7_Account.dart';
@@ -58,7 +59,8 @@ class _HistoryPageState extends State<HistoryPage>
                       ),
                     ),
                     // AKHIR TAG BOOKING
-                    CardBookingDipesan(tglawal : _tanggalAwal, tglakhir : _tanggalAkhir),
+                    CardBookingDipesan(
+                        tglawal: _tanggalAwal, tglakhir: _tanggalAkhir),
                     //AKHIR CARD BOOKING
                   ],
                 ),
@@ -202,7 +204,6 @@ class _HistoryPageState extends State<HistoryPage>
 }
 
 class CardBookingDipesan extends StatelessWidget {
-
   const CardBookingDipesan({required this.tglawal, required this.tglakhir});
 
   final DateTime tglawal;
@@ -259,8 +260,7 @@ class CardBookingDipesan extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    'Check in : ' +
-                        DateFormat.yMMMEd().format(tglawal),
+                    'Check in : ' + DateFormat.yMMMEd().format(tglawal),
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
@@ -268,8 +268,7 @@ class CardBookingDipesan extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Check out : ' +
-                        DateFormat.yMMMEd().format(tglakhir),
+                    'Check out : ' + DateFormat.yMMMEd().format(tglakhir),
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
@@ -294,7 +293,7 @@ class CardBookingSelesai extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return HistoryPemesanan();
+          return HistoryDone();
         }));
       },
       child: Column(

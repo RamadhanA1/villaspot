@@ -50,7 +50,7 @@ class _VillaDeskState extends State<VillaDesk> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Rp 150.000,-/Malam',
+                        'Rp 1.500.000,-/Malam',
                         style: TextStyle(
                           fontSize: 18.0,
                           color: Colors.white,
@@ -58,7 +58,7 @@ class _VillaDeskState extends State<VillaDesk> {
                         ),
                       ),
                       InkWell(
-                        onTap:() {
+                        onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(

@@ -31,6 +31,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   //   super.dispose();
   // }
 
+  String gambar = '';
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -134,16 +135,66 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     crossAxisSpacing: 5,
                     mainAxisSpacing: 5,
                     children: [
-                      cardVilla(),
-                      cardVilla(),
-                      cardVilla(),
-                      cardVilla(),
-                      cardVilla(),
-                      cardVilla(),
-                      cardVilla(),
-                      cardVilla(),
-                      cardVilla(),
-                      cardVilla(),
+                      cardVilla(
+                        gambar: 'assets/1.jpg',
+                        nama: 'Villa Bogor',
+                        Tempat: 'Puncak, Bogor',
+                        Harga: 'Rp 1.500.000',
+                      ),
+                      cardVilla(
+                        gambar: 'assets/2.jpg',
+                        nama: 'Villa Depok',
+                        Tempat: 'Puncak, Depok',
+                        Harga: 'Rp 1.350.000',
+                      ),
+                      cardVilla(
+                        gambar: 'assets/3.jpg',
+                        nama: 'Villa Arisela',
+                        Tempat: 'Cisarua, Bogor',
+                        Harga: 'Rp 1.900.000',
+                      ),
+                      cardVilla(
+                        gambar: 'assets/4.jpg',
+                        nama: 'Villa Nabilla',
+                        Tempat: 'Puncak, Cipanas',
+                        Harga: 'Rp 1.650.000',
+                      ),
+                      cardVilla(
+                        gambar: 'assets/5.jpg',
+                        nama: 'Villa Texas',
+                        Tempat: 'Cisarua, Bogor',
+                        Harga: 'Rp 2.100.000',
+                      ),
+                      cardVilla(
+                        gambar: 'assets/6.jpg',
+                        nama: 'Villa Reyhan',
+                        Tempat: 'Cibeureum, Cisarua',
+                        Harga: 'Rp 1.000.000',
+                      ),
+                      cardVilla(
+                        gambar: 'assets/7.jpg',
+                        nama: 'Villa Rudian',
+                        Tempat: 'Cisarua, Bogor',
+                        Harga: 'Rp 1.400.000',
+                      ),
+                      cardVilla(
+                        gambar: 'assets/8.jpg',
+                        nama: 'Villa Pak Ilham',
+                        Tempat: 'Caringin, Bogor',
+                        Harga: 'Rp 1.500.000',
+                      ),
+                      cardVilla(
+                        gambar: 'assets/9.jpg',
+                        nama: 'Villa Boutique',
+                        Tempat: 'Cibeureum, Bogor',
+                        Harga: 'Rp 1.400.000',
+                      ),
+                      cardVilla(
+                        gambar: 'assets/10.jpg',
+                        nama: 'Villa Crystal',
+                        Tempat: 'Cipanas, Bogor',
+                        Harga: 'Rp 1.700.000',
+                      ),
                       // //Awalan
                       // Container(
                       //   padding:
@@ -370,7 +421,18 @@ class CustomSearchDelegate extends SearchDelegate {
 }
 
 class cardVilla extends StatelessWidget {
-  const cardVilla({Key? key}) : super(key: key);
+  const cardVilla(
+      {required this.gambar,
+      required this.nama,
+      required this.Tempat,
+      required this.Harga});
+
+  // const cardVilla({Key? key}) : super(key: key);
+
+  final String gambar;
+  final String nama;
+  final String Tempat;
+  final String Harga;
 
   @override
   Widget build(BuildContext context) {
@@ -394,7 +456,7 @@ class cardVilla extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.only(left: 5),
                 child: Text(
-                  'Puncak, Bogor',
+                  Tempat,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 11,
@@ -404,12 +466,12 @@ class cardVilla extends StatelessWidget {
             ),
             SizedBox(
               height: 80,
-              width: 170,
+              width: 200,
               child: ClipRRect(
                 // borderRadius: BorderRadius.circular(100.0),
                 child: Image.asset(
                   // ==> TARUH SOURCE GAMBAR DISINI
-                  'assets/4.jpg',
+                  gambar,
                   // TARUH SOURCE GAMBAR DISINI <==
                   fit: BoxFit.cover,
                 ),
@@ -426,14 +488,14 @@ class cardVilla extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Villa Bogor',
+                      nama,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 11,
                           fontWeight: FontWeight.w500),
                     ),
                     Text(
-                      'Rp 1.500.000',
+                      Harga,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 11,

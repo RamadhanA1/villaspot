@@ -39,7 +39,7 @@ dependencies:
   datetime_picker_formfield: ^2.0.0
   bubble: ^1.2.1
   flutter_image_slideshow: ^0.1.2
-  firebase_core: ^1.17.0
+  # firebase_core: ^1.17.0
   # cloud_firestore: ^3.1.15
   
 
