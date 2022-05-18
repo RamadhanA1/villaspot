@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +15,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController nama = TextEditingController();
+
   //Menghilangkan Typing Password
   bool _isObscure = true;
   //Menghilangkan Typing Password
@@ -68,6 +71,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference users = firestore.collection('users');
     return Scaffold(
       //AWAL BODY//
       body: Container(
@@ -105,6 +110,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         // height: 52,
                         padding: EdgeInsets.symmetric(vertical: 5),
                         child: TextFormField(
+                          controller: nama,
                           // validator
                           validator: (value) {
                             if (value == null || value.trim().isEmpty) {
@@ -328,6 +334,25 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: EdgeInsets.symmetric(vertical: 10),
                         child: ElevatedButton(
                           onPressed: _trySubmitForm,
+
+                          // users.add({
+                          //   'nama': _namaLengkap,
+                          //   // 'tanggallahir': _pilihTanggal,
+                          //   // 'username': _userName,
+                          //   // 'email': _email,
+                          //   // 'no': _telepon,
+                          //   // 'pasword': _password,
+                          //   // 'confirm': _passwordConfirm
+                          // });
+
+                          // _namaLengkap = '';
+                          // // _pilihTanggal = '';
+                          // // _userName = '';
+                          // // _email = '';
+                          // // _telepon = '';
+                          // // _password = '';
+                          // // _passwordConfirm = '';
+
                           // () {
                           //   Navigator.push(
                           //       context,

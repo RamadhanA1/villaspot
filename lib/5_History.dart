@@ -60,7 +60,10 @@ class _HistoryPageState extends State<HistoryPage>
                     ),
                     // AKHIR TAG BOOKING
                     CardBookingDipesan(
-                        tglawal: _tanggalAwal, tglakhir: _tanggalAkhir),
+                      tglawal: _tanggalAwal,
+                      tglakhir: _tanggalAkhir,
+                      hotel: 'assets/1.jpg',
+                    ),
                     //AKHIR CARD BOOKING
                   ],
                 ),
@@ -87,10 +90,22 @@ class _HistoryPageState extends State<HistoryPage>
                     // AKHIR TAG BOOKING SELESAI
 
                     // AWAL CARD BOOKING SELESAI
-                    CardBookingSelesai(),
-                    CardBookingSelesai(),
-                    CardBookingSelesai(),
-                    CardBookingSelesai(),
+                    CardBookingSelesai(
+                      villa: 'assets/2.jpg',
+                      nama_villa: 'Villa Depok',
+                    ),
+                    CardBookingSelesai(
+                      villa: 'assets/3.jpg',
+                      nama_villa: 'Villa Arisela',
+                    ),
+                    CardBookingSelesai(
+                      villa: 'assets/4.jpg',
+                      nama_villa: 'villa Nabilla',
+                    ),
+                    CardBookingSelesai(
+                      villa: 'assets/5.jpg',
+                      nama_villa: 'Villa Texas',
+                    ),
                     //AKHIR CARD BOOKING SELESAI
                   ],
                 ),
@@ -204,10 +219,12 @@ class _HistoryPageState extends State<HistoryPage>
 }
 
 class CardBookingDipesan extends StatelessWidget {
-  const CardBookingDipesan({required this.tglawal, required this.tglakhir});
+  const CardBookingDipesan(
+      {required this.tglawal, required this.tglakhir, required this.hotel});
 
   final DateTime tglawal;
   final DateTime tglakhir;
+  final String hotel;
 
   @override
   Widget build(BuildContext context) {
@@ -227,7 +244,7 @@ class CardBookingDipesan extends StatelessWidget {
               borderRadius:
                   BorderRadiusDirectional.vertical(top: Radius.circular(10)),
               image: DecorationImage(
-                image: AssetImage('assets/4.jpg'),
+                image: AssetImage(hotel),
                 fit: BoxFit.cover,
               ),
             ),
@@ -286,8 +303,11 @@ class CardBookingDipesan extends StatelessWidget {
 }
 
 class CardBookingSelesai extends StatelessWidget {
-  const CardBookingSelesai({Key? key}) : super(key: key);
+  CardBookingSelesai({required this.villa, required this.nama_villa});
+  // const CardBookingSelesai({Key? key}) : super(key: key);
 
+  final String villa;
+  final String nama_villa;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -306,7 +326,7 @@ class CardBookingSelesai extends StatelessWidget {
               borderRadius:
                   BorderRadiusDirectional.vertical(top: Radius.circular(10)),
               image: DecorationImage(
-                image: AssetImage('assets/4.jpg'),
+                image: AssetImage(villa),
                 fit: BoxFit.cover,
               ),
             ),
@@ -314,7 +334,7 @@ class CardBookingSelesai extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
               alignment: Alignment.bottomRight,
               child: Text(
-                'Villa Bogor',
+                nama_villa,
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w900,

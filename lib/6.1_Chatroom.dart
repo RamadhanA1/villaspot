@@ -16,14 +16,16 @@ class _ChatroomState extends State<Chatroom> {
       appBar: new AppBar(
         automaticallyImplyLeading: true,
         backgroundColor: Colors.blue[400],
-        title: Text('Villa Bogor'),
+        title: Text('Ramadhan Amannu'),
       ),
       // AKHIR APPBAR
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
         child: ListView(
           children: [
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Bubble(
               alignment: Alignment.center,
               color: Color.fromRGBO(212, 234, 244, 1.0),
@@ -42,7 +44,8 @@ class _ChatroomState extends State<Chatroom> {
               margin: BubbleEdges.only(top: 10),
               alignment: Alignment.topLeft,
               nip: BubbleNip.leftTop,
-              child: Text('Mohon maaf, saat ini kami sedang offline. Silahkan hubungi melalui kontak whatsapp'),
+              child: Text(
+                  'Mohon maaf, saat ini kami sedang offline. Silahkan hubungi melalui kontak whatsapp'),
             ),
             // Bubble(
             //   margin: BubbleEdges.only(top: 10),
@@ -70,43 +73,45 @@ class _ChatroomState extends State<Chatroom> {
         ),
       ),
       bottomNavigationBar: Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.0),
-      height: 70.0,
-      decoration: BoxDecoration(color: Colors.white, 
-      boxShadow: [
-      BoxShadow(
-        color: Colors.grey.withOpacity(0.5),
-        spreadRadius: 5,
-        blurRadius: 7,
-        offset: Offset(0, 3), // changes position of shadow
-      ),
-    ],),
-      child: Row(
-        children: <Widget>[
-          // IconButton(
-          //   icon: Icon(Icons.photo),
-          //   iconSize: 25.0,
-          //   color: Theme.of(context).primaryColor,
-          //   onPressed: () {},
-          // ),
-          Expanded(
-            child: TextField(
-              textCapitalization: TextCapitalization.sentences,
-              onChanged: (value) {},
-              decoration: InputDecoration.collapsed(
-                hintText: 'Send a message...',
+        padding: EdgeInsets.symmetric(horizontal: 8.0),
+        height: 70.0,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Row(
+          children: <Widget>[
+            // IconButton(
+            //   icon: Icon(Icons.photo),
+            //   iconSize: 25.0,
+            //   color: Theme.of(context).primaryColor,
+            //   onPressed: () {},
+            // ),
+            Expanded(
+              child: TextField(
+                textCapitalization: TextCapitalization.sentences,
+                onChanged: (value) {},
+                decoration: InputDecoration.collapsed(
+                  hintText: 'Send a message...',
+                ),
               ),
             ),
-          ),
-          IconButton(
-            icon: Icon(Icons.send),
-            iconSize: 25.0,
-            color: Theme.of(context).primaryColor,
-            onPressed: () {},
-          ),
-        ],
+            IconButton(
+              icon: Icon(Icons.send),
+              iconSize: 25.0,
+              color: Theme.of(context).primaryColor,
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
-    ),
     );
   }
 }

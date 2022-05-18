@@ -50,7 +50,10 @@ class _ChatPageState extends State<ChatPage>
                       ),
                     ),
                     // AKHIR TAG BELUM DIBACA
-                    CardChat(),
+                    CardChat(
+                      profil: 'assets/11.jpg',
+                      orang: 'Ramadhan Amannu',
+                    ),
                   ],
                 ),
               ),
@@ -73,11 +76,26 @@ class _ChatPageState extends State<ChatPage>
                       ),
                     ),
                     // AKHIR TAG SUDAH DIBACA
-                    CardChat(),
-                    CardChat(),
-                    CardChat(),
-                    CardChat(),
-                    CardChat(),
+                    CardChat(
+                      profil: 'assets/12.jpg',
+                      orang: 'Kharil Anwar',
+                    ),
+                    CardChat(
+                      profil: 'assets/13.jpg',
+                      orang: 'Ryah Bahri Harahap',
+                    ),
+                    CardChat(
+                      profil: 'assets/14.jpg',
+                      orang: 'Billah Belhaz',
+                    ),
+                    CardChat(
+                      profil: 'assets/15.jpg',
+                      orang: 'Albertus Noe',
+                    ),
+                    CardChat(
+                      profil: 'assets/16.jpg',
+                      orang: 'Risma Triananda',
+                    ),
                   ],
                 ),
               ),
@@ -190,8 +208,11 @@ class _ChatPageState extends State<ChatPage>
 }
 
 class CardChat extends StatelessWidget {
-  const CardChat({Key? key}) : super(key: key);
+  CardChat({required this.profil, required this.orang});
+  // const CardChat({Key? key}) : super(key: key);
 
+  final String profil;
+  final String orang;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -199,8 +220,8 @@ class CardChat extends StatelessWidget {
         // AWAL CARD BELUM DIBACA
         child: InkWell(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Chatroom()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Chatroom()));
           },
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 10),
@@ -215,7 +236,7 @@ class CardChat extends StatelessWidget {
                     leading: new CircleAvatar(
                       foregroundColor: Theme.of(context).primaryColor,
                       backgroundColor: Colors.grey,
-                      backgroundImage: new AssetImage('assets/10.jpg'
+                      backgroundImage: new AssetImage(profil
                           // 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
                           ),
                     ),
@@ -223,7 +244,7 @@ class CardChat extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         new Text(
-                          'Villa Bogor',
+                          orang,
                           style: new TextStyle(fontWeight: FontWeight.bold),
                         ),
                         new Text(
