@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:villaspot/1_welcomescreen.dart';
 import 'package:villaspot/4_Homepage.dart';
+import 'package:villaspot/6.1_Chatroom.dart';
 import 'package:villaspot/6_Chat.dart';
 import 'package:villaspot/5_History.dart';
 import 'package:villaspot/7_Account.dart';
@@ -197,7 +198,10 @@ class CardChat extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 5),
         // AWAL CARD BELUM DIBACA
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Chatroom()));
+          },
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 10),
             height: 76,
@@ -211,7 +215,7 @@ class CardChat extends StatelessWidget {
                     leading: new CircleAvatar(
                       foregroundColor: Theme.of(context).primaryColor,
                       backgroundColor: Colors.grey,
-                      backgroundImage: new AssetImage('assets/profile.jpg'
+                      backgroundImage: new AssetImage('assets/10.jpg'
                           // 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
                           ),
                     ),
@@ -219,7 +223,7 @@ class CardChat extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         new Text(
-                          'Ringgo Ceper',
+                          'Villa Bogor',
                           style: new TextStyle(fontWeight: FontWeight.bold),
                         ),
                         new Text(

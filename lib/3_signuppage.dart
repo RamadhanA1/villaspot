@@ -27,7 +27,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
   // FORM KEY
   final _formKey = GlobalKey<FormState>();
+  // FORM KEY
 
+  // VALUE
   String _namaLengkap = '';
   String _pilihTanggal = '';
   String _userName = '';
@@ -35,7 +37,7 @@ class _SignUpPageState extends State<SignUpPage> {
   String _telepon = '';
   String _password = '';
   String _passwordConfirm = '';
-  // FORM KEY
+  //VALUE
 
   // FUNGSI UNTUK SIGN UP
   void _trySubmitForm() {
@@ -150,7 +152,6 @@ class _SignUpPageState extends State<SignUpPage> {
                               borderRadius: BorderRadius.circular(100),
                             ),
                           ),
-
                         ),
                       ),
                       Container(

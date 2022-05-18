@@ -5,6 +5,7 @@ import 'package:villaspot/5.1_HistoryPemesanan.dart';
 import 'package:villaspot/6_Chat.dart';
 import 'package:villaspot/5_History.dart';
 import 'package:villaspot/7_Account.dart';
+import 'package:intl/intl.dart';
 
 class HistoryPage extends StatefulWidget {
   Null get title => null;
@@ -15,6 +16,13 @@ class HistoryPage extends StatefulWidget {
 
 class _HistoryPageState extends State<HistoryPage>
     with SingleTickerProviderStateMixin {
+  final DateFormat format = DateFormat("dd-MM-yyyy");
+  DateTime _tanggalAwal = DateTime(2022, 5, 19);
+  DateTime _tanggalAkhir = DateTime(2022, 5, 21);
+  final firstDate = DateTime(2022);
+  final lastDate = DateTime(2023);
+
+  late String tglAwal = DateFormat.yMMMd().format(_tanggalAwal);
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -50,82 +58,7 @@ class _HistoryPageState extends State<HistoryPage>
                       ),
                     ),
                     // AKHIR TAG BOOKING
-
-                    // AWAL CARD BOOKING
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return HistoryPemesanan();
-                        }));
-                      },
-                      child: Column(
-                        children: [
-                          // LAYOUT ATAS CARD BOOKING
-                          Container(
-                            // width: 200,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadiusDirectional.vertical(
-                                  top: Radius.circular(10)),
-                              image: DecorationImage(
-                                image: AssetImage('assets/4.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 5, horizontal: 15),
-                              alignment: Alignment.bottomRight,
-                              child: Text(
-                                'Villa ABC',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                          ),
-                          // LAYOUT BAWAH CARD BOOKING
-                          Container(
-                            // width: 200,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadiusDirectional.vertical(
-                                  bottom: Radius.circular(10)),
-                              color: Colors.blue.shade800,
-                            ),
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 15),
-                              alignment: Alignment.topRight,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    'Check In : 29 Februari 2022, 17:00 WIB',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 11,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Check out : 30 Februari 2022, 07:00 WIB',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 11,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    CardBookingDipesan(tglawal : _tanggalAwal, tglakhir : _tanggalAkhir),
                     //AKHIR CARD BOOKING
                   ],
                 ),
@@ -152,388 +85,10 @@ class _HistoryPageState extends State<HistoryPage>
                     // AKHIR TAG BOOKING SELESAI
 
                     // AWAL CARD BOOKING SELESAI
-                    InkWell(
-                      onTap: () {
-                        // LANJUT KE PAGE DETAIL BOOKING
-                      },
-                      child: Container(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child: Column(
-                          children: [
-                            // LAYOUT ATAS CARD BOOKING SELESAI
-                            Container(
-                              // width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.vertical(
-                                    top: Radius.circular(10)),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/4.jpg'),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 15),
-                                alignment: Alignment.bottomRight,
-                                child: Text(
-                                  'Villa ABC',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // LAYOUT BAWAH CARD BOOKING SELESAI
-                            Container(
-                              // width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.vertical(
-                                    bottom: Radius.circular(10)),
-                                color: Colors.blue.shade800,
-                              ),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 15),
-                                alignment: Alignment.topRight,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      'Check In : 29 Februari 2022, 17:00 WIB',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Check out : 30 Februari 2022, 07:00 WIB',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    //AKHIR CARD BOOKING SELESAI
-
-                    // AWAL CARD BOOKING SELESAI
-                    InkWell(
-                      onTap: () {
-                        // LANJUT KE PAGE DETAIL BOOKING
-                      },
-                      child: Container(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child: Column(
-                          children: [
-                            // LAYOUT ATAS CARD BOOKING SELESAI
-                            Container(
-                              // width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.vertical(
-                                    top: Radius.circular(10)),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/4.jpg'),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 15),
-                                alignment: Alignment.bottomRight,
-                                child: Text(
-                                  'Villa ABC',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // LAYOUT BAWAH CARD BOOKING SELESAI
-                            Container(
-                              // width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.vertical(
-                                    bottom: Radius.circular(10)),
-                                color: Colors.blue.shade800,
-                              ),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 15),
-                                alignment: Alignment.topRight,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      'Check In : 29 Februari 2022, 17:00 WIB',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Check out : 30 Februari 2022, 07:00 WIB',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    //AKHIR CARD BOOKING SELESAI
-
-                    // AWAL CARD BOOKING SELESAI
-                    InkWell(
-                      onTap: () {
-                        // LANJUT KE PAGE DETAIL BOOKING
-                      },
-                      child: Container(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child: Column(
-                          children: [
-                            // LAYOUT ATAS CARD BOOKING SELESAI
-                            Container(
-                              // width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.vertical(
-                                    top: Radius.circular(10)),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/4.jpg'),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 15),
-                                alignment: Alignment.bottomRight,
-                                child: Text(
-                                  'Villa ABC',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // LAYOUT BAWAH CARD BOOKING SELESAI
-                            Container(
-                              // width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.vertical(
-                                    bottom: Radius.circular(10)),
-                                color: Colors.blue.shade800,
-                              ),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 15),
-                                alignment: Alignment.topRight,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      'Check In : 29 Februari 2022, 17:00 WIB',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Check out : 30 Februari 2022, 07:00 WIB',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    //AKHIR CARD BOOKING SELESAI
-
-                    // AWAL CARD BOOKING SELESAI
-                    InkWell(
-                      onTap: () {
-                        // LANJUT KE PAGE DETAIL BOOKING
-                      },
-                      child: Container(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child: Column(
-                          children: [
-                            // LAYOUT ATAS CARD BOOKING SELESAI
-                            Container(
-                              // width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.vertical(
-                                    top: Radius.circular(10)),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/4.jpg'),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 15),
-                                alignment: Alignment.bottomRight,
-                                child: Text(
-                                  'Villa ABC',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // LAYOUT BAWAH CARD BOOKING SELESAI
-                            Container(
-                              // width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.vertical(
-                                    bottom: Radius.circular(10)),
-                                color: Colors.blue.shade800,
-                              ),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 15),
-                                alignment: Alignment.topRight,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      'Check In : 29 Februari 2022, 17:00 WIB',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Check out : 30 Februari 2022, 07:00 WIB',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    //AKHIR CARD BOOKING SELESAI
-
-                    // AWAL CARD BOOKING SELESAI
-                    InkWell(
-                      onTap: () {
-                        // LANJUT KE PAGE DETAIL BOOKING
-                      },
-                      child: Container(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child: Column(
-                          children: [
-                            // LAYOUT ATAS CARD BOOKING SELESAI
-                            Container(
-                              // width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.vertical(
-                                    top: Radius.circular(10)),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/4.jpg'),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 15),
-                                alignment: Alignment.bottomRight,
-                                child: Text(
-                                  'Villa ABC',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // LAYOUT BAWAH CARD BOOKING SELESAI
-                            Container(
-                              // width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.vertical(
-                                    bottom: Radius.circular(10)),
-                                color: Colors.blue.shade800,
-                              ),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 15),
-                                alignment: Alignment.topRight,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      'Check In : 29 Februari 2022, 17:00 WIB',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Check out : 30 Februari 2022, 07:00 WIB',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    CardBookingSelesai(),
+                    CardBookingSelesai(),
+                    CardBookingSelesai(),
+                    CardBookingSelesai(),
                     //AKHIR CARD BOOKING SELESAI
                   ],
                 ),
@@ -642,6 +197,175 @@ class _HistoryPageState extends State<HistoryPage>
         ),
       ),
       // AKHIR BOTTOM NAVGATION
+    );
+  }
+}
+
+class CardBookingDipesan extends StatelessWidget {
+
+  const CardBookingDipesan({required this.tglawal, required this.tglakhir});
+
+  final DateTime tglawal;
+  final DateTime tglakhir;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return HistoryPemesanan();
+        }));
+      },
+      child: Column(
+        children: [
+          // LAYOUT ATAS CARD BOOKING
+          Container(
+            // width: 200,
+            height: 60,
+            decoration: BoxDecoration(
+              borderRadius:
+                  BorderRadiusDirectional.vertical(top: Radius.circular(10)),
+              image: DecorationImage(
+                image: AssetImage('assets/4.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+              alignment: Alignment.bottomRight,
+              child: Text(
+                'Villa Bogor',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          ),
+          // LAYOUT BAWAH CARD BOOKING
+          Container(
+            // width: 200,
+            height: 60,
+            decoration: BoxDecoration(
+              borderRadius:
+                  BorderRadiusDirectional.vertical(bottom: Radius.circular(10)),
+              color: Colors.blue.shade800,
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              alignment: Alignment.topRight,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'Check in : ' +
+                        DateFormat.yMMMEd().format(tglawal),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 11,
+                    ),
+                  ),
+                  Text(
+                    'Check out : ' +
+                        DateFormat.yMMMEd().format(tglakhir),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 11,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CardBookingSelesai extends StatelessWidget {
+  const CardBookingSelesai({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return HistoryPemesanan();
+        }));
+      },
+      child: Column(
+        children: [
+          // LAYOUT ATAS CARD BOOKING
+          Container(
+            // width: 200,
+            height: 60,
+            decoration: BoxDecoration(
+              borderRadius:
+                  BorderRadiusDirectional.vertical(top: Radius.circular(10)),
+              image: DecorationImage(
+                image: AssetImage('assets/4.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+              alignment: Alignment.bottomRight,
+              child: Text(
+                'Villa Bogor',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          ),
+          // LAYOUT BAWAH CARD BOOKING
+          Container(
+            // width: 200,
+            height: 60,
+            decoration: BoxDecoration(
+              borderRadius:
+                  BorderRadiusDirectional.vertical(bottom: Radius.circular(10)),
+              color: Colors.blue.shade800,
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              alignment: Alignment.topRight,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'Check In : ' +
+                        DateFormat.yMMMEd().format(DateTime(2022, 4, 12)),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 11,
+                    ),
+                  ),
+                  Text(
+                    'Check out : ' +
+                        DateFormat.yMMMEd().format(DateTime(2022, 4, 15)),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 11,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          )
+        ],
+      ),
     );
   }
 }

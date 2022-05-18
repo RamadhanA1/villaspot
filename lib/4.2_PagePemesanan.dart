@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:villaspot/4.3_PemesananDone.dart';
 
 class PagePemesanan extends StatefulWidget {
@@ -10,6 +11,53 @@ class PagePemesanan extends StatefulWidget {
 
 class _PagePemesanan extends State<PagePemesanan>
     with SingleTickerProviderStateMixin {
+  //memilih tanggal
+  final DateFormat format = DateFormat("dd-MM-yyyy");
+  DateTime _tanggalAwal = DateTime.now();
+  DateTime _tanggalAkhir = DateTime.now()..add(const Duration(days: 1));
+  final firstDate = DateTime(2022);
+  final lastDate = DateTime(2023);
+  // int difference = _tanggalAkhir.difference(_tanggalAwal).inDays;
+
+  _pickTglAwal(BuildContext context) async {
+    final DateTime? date1 = await showDatePicker(
+        context: context,
+        initialDate: _tanggalAwal,
+        firstDate: firstDate,
+        lastDate: lastDate);
+    if (date1 != null) {
+      setState(() {
+        _tanggalAwal = date1;
+      });
+    }
+  }
+
+  _pickTglAkhir(BuildContext context) async {
+    final DateTime? date2 = await showDatePicker(
+        context: context,
+        initialDate: _tanggalAkhir,
+        firstDate: firstDate,
+        lastDate: lastDate);
+    if (date2 != null) {
+      setState(() {
+        _tanggalAkhir = date2;
+        _countDay = _tanggalAkhir.difference(_tanggalAwal).inDays;
+        _total = _countDay * _hargaPerMalam;
+      });
+    }
+  }
+
+  //memilih tanggal
+
+  // VALUE
+  String _namaLengkap = 'Arfin Ilyas';
+  String _email = 'ringgo_rrq@gmail.com';
+  String _telepon = '089875686542';
+  int _countDay = 0;
+  int _hargaPerMalam = 1500000;
+  int _total = 0;
+  // VALUE
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -21,13 +69,14 @@ class _PagePemesanan extends State<PagePemesanan>
       ),
 
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 25, horizontal: 25),
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         child: Center(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                 width: 720,
-                height: 225,
+                height: 180,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/3.jpg'),
@@ -83,7 +132,7 @@ class _PagePemesanan extends State<PagePemesanan>
               //   ),
               // ),
               Container(
-                  padding: EdgeInsets.fromLTRB(0, 15, 0, 20),
+                  padding: EdgeInsets.fromLTRB(0, 15, 0, 10),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
@@ -98,78 +147,111 @@ class _PagePemesanan extends State<PagePemesanan>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      child: Column(
-                        children: [
-                          Container(
-                            child: Row(
-                              children: [
-                                Container(
-                                    child: Icon(Icons.calendar_today_rounded)),
-                                Container(
-                                  child: Text(
-                                    'Check In',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
-                                  ),
-                                )
-                              ],
+                    InkWell(
+                      onTap: () => _pickTglAwal(context),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 12),
+                        // color: Colors.grey,
+                        height: 55,
+                        width: 150,
+                        // alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.blueGrey.shade100),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              child: Row(
+                                children: [
+                                  Container(
+                                      child:
+                                          Icon(Icons.calendar_today_rounded)),
+                                  Container(
+                                    child: Text(
+                                      'Check In',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 17),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            child: Row(
-                              children: [
-                                Container(
-                                  child: Text(
-                                    '13 Mei 2022',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 15),
+                            Container(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      DateFormat.yMMMd()
+
+                                          // displaying formatted date
+                                          .format(_tanggalAwal),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 15),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      child: Column(
-                        children: [
-                          Container(
-                            child: Row(
-                              children: [
-                                Container(
-                                    child: Icon(Icons.calendar_today_rounded)),
-                                Container(
-                                  child: Text(
-                                    'Check Out',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
-                                  ),
-                                )
-                              ],
+                    InkWell(
+                      onTap: () => _pickTglAkhir(context),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 12),
+                        // color: Colors.grey,
+                        height: 55,
+                        width: 150,
+                        // alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.blueGrey.shade100,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              child: Row(
+                                children: [
+                                  Container(
+                                      child:
+                                          Icon(Icons.calendar_today_rounded)),
+                                  Container(
+                                    child: Text(
+                                      'Check Out',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 17),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            child: Row(
-                              children: [
-                                Container(
-                                  child: Text(
-                                    '13 Mei 2022',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 15),
+                            Container(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      DateFormat.yMMMd()
+
+                                          // displaying formatted date
+                                          .format(_tanggalAkhir),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 15),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -196,7 +278,7 @@ class _PagePemesanan extends State<PagePemesanan>
                   children: [
                     Container(
                       child: Text(
-                        'Bambang Sutojo',
+                        '$_namaLengkap',
                         style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
@@ -205,7 +287,7 @@ class _PagePemesanan extends State<PagePemesanan>
                       alignment: Alignment.centerLeft,
                     ),
                     Container(
-                      child: Text('KharilAnwar@gmail.com',
+                      child: Text('$_email',
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
@@ -213,7 +295,7 @@ class _PagePemesanan extends State<PagePemesanan>
                       alignment: Alignment.centerLeft,
                     ),
                     Container(
-                      child: Text('0811-111-1111',
+                      child: Text('$_telepon',
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
@@ -242,7 +324,8 @@ class _PagePemesanan extends State<PagePemesanan>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            child: Text('2 Night x Rp 1.500.000',
+                            child: Text(
+                                '$_countDay Night x Rp. $_hargaPerMalam',
                                 style: TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
@@ -250,7 +333,7 @@ class _PagePemesanan extends State<PagePemesanan>
                             alignment: Alignment.centerLeft,
                           ),
                           Container(
-                            child: Text('Rp 3.000.000',
+                            child: Text('Rp. $_total',
                                 style: TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
@@ -266,10 +349,43 @@ class _PagePemesanan extends State<PagePemesanan>
                       width: 250,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => DonePage()));
+                          AlertDialog alert = AlertDialog(
+                            // title: Text('Konfirmasi Pemesanan'),
+                            content: Text('Konfirmasi Pemesanan?'),
+                            // ListView(
+                            //   children: [
+                            //     Text('Villa Bogor'),
+                            //     Text('Check In  : $_tanggalAwal'),
+                            //     Text('Check Out : $_tanggalAkhir'),
+                            //     Text('Total : Rp. $_total')
+                            //   ],
+                            // ),
+                            actions: [
+                              FlatButton(
+                                textColor: Color(0xFF6200EE),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('CANCEL'),
+                              ),
+                              FlatButton(
+                                textColor: Color(0xFF6200EE),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DonePage()));
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          );
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return alert;
+                            },
+                          );
                         },
                         child: Text(
                           'Konfirmasi Pemesanan',

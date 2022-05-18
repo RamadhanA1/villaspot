@@ -26,7 +26,7 @@ class _AccountpageState extends State<Accountpage>
   // FORM KEY
   final _formKey = GlobalKey<FormState>();
 
-  String _namaLengkap = 'Ringgo Ricard';
+  String _namaLengkap = 'Arfin Ilyas';
   String _pilihTanggal = '05-12-2001';
   String _userName = 'ringgoR';
   String _email = 'ringgo_rrq@gmail.com';
@@ -238,10 +238,34 @@ class _AccountpageState extends State<Accountpage>
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) {
-                      return WelcomePage();
-                    }));
+                    AlertDialog alert = AlertDialog(
+                            content: Text('Konfirmasi Keluar Akun?'),
+                            actions: [
+                              FlatButton(
+                                textColor: Color(0xFF6200EE),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('CANCEL'),
+                              ),
+                              FlatButton(
+                                textColor: Color(0xFF6200EE),
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => WelcomePage()));
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          );
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return alert;
+                            },
+                          );
                   },
                   child: Text(
                     'Log Out',

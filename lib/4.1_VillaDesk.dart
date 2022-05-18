@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:villaspot/4.2_PagePemesanan.dart';
+import 'package:villaspot/6.1_Chatroom.dart';
 
 class VillaDesk extends StatefulWidget {
   const VillaDesk({Key? key}) : super(key: key);
@@ -56,9 +57,17 @@ class _VillaDeskState extends State<VillaDesk> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Icon(
-                        Icons.chat,
-                        color: Colors.white,
+                      InkWell(
+                        onTap:() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Chatroom()));
+                        },
+                        child: Icon(
+                          Icons.chat,
+                          color: Colors.white,
+                        ),
                       ),
                       ElevatedButton(
                         onPressed: () {

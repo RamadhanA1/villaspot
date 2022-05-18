@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:villaspot/4.1_VillaDesk.dart';
 import 'package:villaspot/4.3_PemesananDone.dart';
 import 'package:villaspot/6_Chat.dart';
@@ -37,7 +38,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       appBar: new AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.blue[400],
-        title: Text('Homepage'),
+        title: Text('VillaSpot'),
         actions: [
           IconButton(
               onPressed: () {
@@ -55,21 +56,66 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       body: Container(
         child: Column(
           children: [
-            Container(
-                padding: EdgeInsets.only(bottom: 10),
-                // child: Swiper(
-                //   itemCount: 5,
-                //   itemBuilder: (BuildContext context, int index) {
-                //     return Image.asset('assets/10.jpg',
-                //         width: 1080, height: 150, fit: BoxFit.cover);
-                //   },
-                // )
-                child: new Image.asset(
-                  'assets/10.jpg',
-                  width: 1080,
-                  height: 150,
+            ImageSlideshow(
+              /// Width of the [ImageSlideshow].
+              width: double.infinity,
+
+              /// Height of the [ImageSlideshow].
+              height: 150,
+
+              /// The page to show when first creating the [ImageSlideshow].
+              initialPage: 0,
+
+              /// The color to paint the indicator.
+              indicatorColor: Colors.blue,
+
+              /// The color to paint behind th indicator.
+              indicatorBackgroundColor: Colors.grey,
+
+              /// The widgets to display in the [ImageSlideshow].
+              /// Add the sample image file into the images folder
+              children: [
+                Image.asset(
+                  'assets/1.jpg',
                   fit: BoxFit.cover,
-                )),
+                ),
+                Image.asset(
+                  'assets/2.jpg',
+                  fit: BoxFit.cover,
+                ),
+                Image.asset(
+                  'assets/3.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ],
+
+              /// Called whenever the page in the center of the viewport changes.
+              onPageChanged: (value) {
+                print('Page changed: $value');
+              },
+
+              /// Auto scroll interval.
+              /// Do not auto scroll with null or 0.
+              autoPlayInterval: 3000,
+
+              /// Loops back to first slide.
+              isLoop: true,
+            ),
+            // Container(
+            //     padding: EdgeInsets.only(bottom: 10),
+            //     // child: Swiper(
+            //     //   itemCount: 5,
+            //     //   itemBuilder: (BuildContext context, int index) {
+            //     //     return Image.asset('assets/10.jpg',
+            //     //         width: 1080, height: 150, fit: BoxFit.cover);
+            //     //   },
+            //     // )
+            //     child: new Image.asset(
+            //       'assets/10.jpg',
+            //       width: 1080,
+            //       height: 150,
+            //       fit: BoxFit.cover,
+            //     )),
             Container(
                 padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 child: Align(

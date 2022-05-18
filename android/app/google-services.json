@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "588448584295",
+    "project_id": "fir-flutter-villaapp",
+    "storage_bucket": "fir-flutter-villaapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588448584295:android:e06961022030753b2abac2",
+        "android_client_info": {
+          "package_name": "com.kelpab.villaspot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588448584295-kj5m2fsniveq4pd4uh2ba8n77l1j5p3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9VU7Rzm4tAqsb1AXsCRvdcw7cpQDHL7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588448584295-kj5m2fsniveq4pd4uh2ba8n77l1j5p3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
