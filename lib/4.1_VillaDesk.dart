@@ -277,7 +277,7 @@ class _VillaDeskState extends State<VillaDesk> {
                                 width: 10,
                               ),
                               Text(
-                                '2 Kamar Tidur',
+                                'No Telepon/WA',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ],
@@ -292,7 +292,7 @@ class _VillaDeskState extends State<VillaDesk> {
                                 width: 10,
                               ),
                               Text(
-                                'Satpam 24 Jam',
+                                'E-Mail',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ],

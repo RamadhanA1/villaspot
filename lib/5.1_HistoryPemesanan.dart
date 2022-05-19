@@ -80,7 +80,7 @@ class _HistoryPemesanan extends State<HistoryPemesanan>
                 height: 180,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/3.jpg'),
+                    image: AssetImage('assets/1.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -375,7 +375,8 @@ class _HistoryPemesanan extends State<HistoryPemesanan>
                                           builder: (context) => HistoryPage()));
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                        content: Text('Villa Selesai Digunakan, Terima Kasih!')),
+                                        content: Text(
+                                            'Villa Selesai Digunakan, Terima Kasih!')),
                                   );
                                 },
                                 child: Text('OK'),
